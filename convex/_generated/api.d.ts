@@ -13,6 +13,13 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as comments from "../comments.js";
+import type * as dashboard from "../dashboard.js";
+import type * as feed from "../feed.js";
+import type * as follows from "../follows.js";
+import type * as likes from "../likes.js";
+import type * as posts from "../posts.js";
+import type * as public_ from "../public.js";
 import type * as users from "../users.js";
 
 /**
@@ -24,6 +31,13 @@ import type * as users from "../users.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  comments: typeof comments;
+  dashboard: typeof dashboard;
+  feed: typeof feed;
+  follows: typeof follows;
+  likes: typeof likes;
+  posts: typeof posts;
+  public: typeof public_;
   users: typeof users;
 }>;
 export declare const api: FilterApi<

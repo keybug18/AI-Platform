@@ -1,7 +1,7 @@
 import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
 
-export const store = mutation({
+export const store = mutation({ 
   args: {},
   handler: async (ctx) => {
     const identity = await ctx.auth.getUserIdentity();
@@ -60,6 +60,7 @@ export const getCurrentUser = query({
 });
 
 // Update username (checks availability and updates)
+
 export const updateUsername = mutation({
   args: {
     username: v.string(),
@@ -71,6 +72,7 @@ export const updateUsername = mutation({
     }
 
     // Get current user
+
     const user = await ctx.db
       .query("users")
       .withIndex("by_token", (q) =>
@@ -83,6 +85,7 @@ export const updateUsername = mutation({
     }
 
     // Validate username format
+
     const usernameRegex = /^[a-zA-Z0-9_-]+$/;
     if (!usernameRegex.test(args.username)) {
       throw new Error(
@@ -117,6 +120,7 @@ export const updateUsername = mutation({
 });
 
 // Get user by username (for public profiles)
+
 export const getByUsername = query({
   args: { username: v.string() },
   handler: async (ctx, args) => {
